@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".rejestracjaActivity"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:layout_margin="20dp"
+    >
+
+    <TextView
+        android:id="@+id/naglowek_powitalny"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:cursorVisible="false"
+        android:text="REJESTRACJA"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/loginLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Login" />
+
+    <EditText
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="textPersonName"
+        />
+
+    <TextView
+        android:id="@+id/imieLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Imie" />
+
+    <EditText
+        android:id="@+id/imie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="textPersonName"
+        />
+
+    <TextView
+        android:id="@+id/hasloLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Hasło" />
+
+
+    <EditText
+        android:id="@+id/haslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:id="@+id/dataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Data urodzenia" />
+
+    <EditText
+        android:id="@+id/data_urodzenia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="date"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:id="@+id/bPotwierdzRejestracje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="POTWIERDŹ REJESTRACJĘ" />
+
+    <TextView
+        android:id="@+id/regulamin_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:cursorVisible="false"
+        android:text="Używając aplikacji Absolwent akceptujesz obowiązujący Regulamin serwisu ABSOLWENT"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>

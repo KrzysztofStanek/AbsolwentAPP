@@ -1,7 +1,11 @@
 package com.example.wsizoprojekt.absolwent;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +13,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button bZarejestruj = findViewById(R.id.bZarejestruj);
+
+        bZarejestruj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(MainActivity.this, "TODO", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, rejestracjaActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 }

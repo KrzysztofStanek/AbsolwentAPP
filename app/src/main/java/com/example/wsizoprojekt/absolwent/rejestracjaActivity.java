@@ -43,8 +43,14 @@ public class rejestracjaActivity extends AppCompatActivity {
                 String data_urodzenia = data_urodzenia_.getText().toString();
 
                 try {
-                    Map<String, String> data = api.rejestruj(login, imie, haslo, "", "", data_urodzenia);
-                    Toast.makeText(rejestracjaActivity.this, data.get("status"), Toast.LENGTH_SHORT).show();
+                    if(!api.czyKontoIstnieje(login)) {
+                        Map<String, String> data = api.rejestruj(login, imie, haslo, "", "", data_urodzenia);
+                        Toast.makeText(rejestracjaActivity.this, "Zarejestrowano", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(rejestracjaActivity.this, "Konto o nazwie "+login+" już istnieje!", Toast.LENGTH_SHORT).show();
+                    }
+                    //Toast.makeText(rejestracjaActivity.this, data.get("status"), Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

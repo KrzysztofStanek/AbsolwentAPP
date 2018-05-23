@@ -43,6 +43,7 @@ public class API {
         JSONObject obj = new JSONObject(json);
         data.put("status",obj.getString("status") );
         data.put("desc",obj.getString("desc") );
+        data.put("data",obj.getString("data") );
         return data;
     }
 
@@ -59,25 +60,43 @@ public class API {
         parametr.put("opis", opis);
         parametr.put("data_urodzenia", data_urodzenia);
 
-        //this.request(parametr);
-
         Map<String, String> data = new HashMap<>();
 
                 
         try {
             String responde = this.request(parametr);
-            Log.d("TUTAJ", responde);
-            //data = this.createData("{\"status\":\"SUCCESS\",\"desc\":\"ZAREJESTROWANO\"}");
             data = this.createData(responde);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if(data == null){
-            data.put("status", "ERROR");
-            data.put("desc", "Brak odpowiedzi JSON");
-        }
+
         return data;
+    }
+
+    public Boolean czyKontoIstnieje(String nick) throws JSONException, ExecutionException, InterruptedException {
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "account_exist");
+
+        parametr.put("nick", nick);
+
+        Map<String, String> data = new HashMap<>();
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+            if(data.get("data") == "TRUE"){
+                return true;
+            }
+            else{
+                return false;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 

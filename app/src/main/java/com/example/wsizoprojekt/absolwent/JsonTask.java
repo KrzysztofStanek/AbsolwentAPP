@@ -14,7 +14,7 @@ import java.net.URL;
 import static com.example.wsizoprojekt.absolwent.API.result;
 
 public class JsonTask extends AsyncTask<String, String, String> {
-
+    public String responde = "";
 
 
     protected void onPreExecute() {
@@ -51,6 +51,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
 
             }
             //result = buffer.toString();
+            this.responde = buffer.toString();
             return buffer.toString();
 
 
@@ -77,7 +78,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         Log.d("API", "onPostExecute");
         super.onPostExecute(result);
-        API.result = result;
+        this.responde = result;
         //Log.d("JSON", result);
        /* if (pd.isShowing()){
             pd.dismiss();

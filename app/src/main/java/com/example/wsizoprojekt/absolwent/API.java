@@ -24,15 +24,16 @@ public class API {
     public String request_key = "jjGMg221gb02199gva";
     ///request_2314151352.php?api_key=15135fdg34245g1fdas1agKKas1&request_key=jjGMg221gb02199gva
 
-    public void request(Map<String, String> params) throws ExecutionException, InterruptedException {
+    public String request(Map<String, String> params) throws ExecutionException, InterruptedException {
         String params_txt="";
 
         for (Map.Entry<String, String> entry : params.entrySet()) {
             params_txt += "&"+entry.getKey()+"="+entry.getValue();
         }
         String request_url = this.url_base+"?"+"api_key="+this.api_key+"&request_key="+this.request_key+params_txt;
-        new JsonTask().execute(request_url).get();
-        Log.d("W wydoku", result);
+        JsonTask task = new JsonTask();
+        task.execute(request_url).get();
+        return task.responde;
 
     }
 
@@ -41,6 +42,7 @@ public class API {
         Log.d("create", json);
         JSONObject obj = new JSONObject(json);
         data.put("status",obj.getString("status") );
+        data.put("desc",obj.getString("desc") );
         return data;
     }
 
@@ -57,18 +59,24 @@ public class API {
         parametr.put("opis", opis);
         parametr.put("data_urodzenia", data_urodzenia);
 
-        this.request(parametr);
+        //this.request(parametr);
 
-        Map<String, String> data = null;
+        Map<String, String> data = new HashMap<>();
+
                 
         try {
-            this.request(parametr);
-            data = this.createData("{\"status\":\"SUCCESS\",\"desc\":\"ZAREJESTROWANO\"}");
-            
+            String responde = this.request(parametr);
+            Log.d("TUTAJ", responde);
+            //data = this.createData("{\"status\":\"SUCCESS\",\"desc\":\"ZAREJESTROWANO\"}");
+            data = this.createData(responde);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        if(data == null){
+            data.put("status", "ERROR");
+            data.put("desc", "Brak odpowiedzi JSON");
+        }
         return data;
     }
 

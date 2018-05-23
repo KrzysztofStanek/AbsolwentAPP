@@ -9,7 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class rejestracjaActivity extends AppCompatActivity {
 
@@ -20,12 +24,6 @@ public class rejestracjaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final API api = new API();
-
-        /*if (android.os.Build.VERSION.SDK_INT > 9)
-        {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }*/
 
         Button bPotwierdzRejestracje = findViewById(R.id.bPotwierdzRejestracje);
 
@@ -44,14 +42,19 @@ public class rejestracjaActivity extends AppCompatActivity {
                 EditText  data_urodzenia_ = findViewById(R.id.data_urodzenia);
                 String data_urodzenia = data_urodzenia_.getText().toString();
 
-                api.rejestruj(login, imie, haslo, "", "", data_urodzenia);
-                Toast.makeText(rejestracjaActivity.this, "TODO", Toast.LENGTH_SHORT).show();
-                /*try {
-                    api.request();
-                } catch (IOException e) {
+                try {
+                    Map<String, String> data = api.rejestruj(login, imie, haslo, "", "", data_urodzenia);
+                    Toast.makeText(rejestracjaActivity.this, data.get("status"), Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(rejestracjaActivity.this, "TODO", Toast.LENGTH_SHORT).show();
-                }*/
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         });
     }

@@ -1,6 +1,5 @@
 package com.example.wsizoprojekt.absolwent;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,9 +11,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.example.wsizoprojekt.absolwent.API.result;
+
 public class JsonTask extends AsyncTask<String, String, String> {
 
-    public ProgressDialog pd;
+
 
     protected void onPreExecute() {
         super.onPreExecute();
@@ -49,7 +50,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
                 Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
 
             }
-
+            //result = buffer.toString();
             return buffer.toString();
 
 
@@ -76,6 +77,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         Log.d("API", "onPostExecute");
         super.onPostExecute(result);
+        API.result = result;
         //Log.d("JSON", result);
        /* if (pd.isShowing()){
             pd.dismiss();

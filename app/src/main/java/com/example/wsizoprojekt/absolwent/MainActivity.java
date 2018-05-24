@@ -15,12 +15,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button bZarejestruj = findViewById(R.id.bZarejestruj);
+        Button bZaloguj = findViewById(R.id.bZaloguj);
 
         bZarejestruj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(MainActivity.this, "TODO", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, rejestracjaActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        bZaloguj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, tablica.class);
                 MainActivity.this.startActivity(intent);
             }
         });

@@ -49,13 +49,16 @@ public class API {
 
     //REJESTRACJA
 
-    public Map<String, String> rejestruj(String nick, String imie, String haslo, String miejscowosc, String opis, String data_urodzenia) throws JSONException, ExecutionException, InterruptedException {
+    public Map<String, String> rejestruj(String nick, String imie, String haslo, String miejscowosc, String opis, String data_urodzenia) throws Exception {
+
+        String pass_hash = Password.hash(haslo);
+
         Map<String, String> parametr = new HashMap<>();
         parametr.put("action", "register_user");
 
         parametr.put("nick", nick);
         parametr.put("imie", imie);
-        parametr.put("haslo", haslo);
+        parametr.put("haslo", pass_hash);
         parametr.put("miejscowosc", miejscowosc);
         parametr.put("opis", opis);
         parametr.put("data_urodzenia", data_urodzenia);

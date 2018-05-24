@@ -61,6 +61,8 @@ public class rejestracjaActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
 

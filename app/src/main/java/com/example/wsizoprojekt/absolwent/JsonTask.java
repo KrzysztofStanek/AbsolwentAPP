@@ -36,7 +36,7 @@ public class JsonTask extends AsyncTask<String, String, String> {
             URL url = new URL(params[0]);
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
-
+            Log.d("URL: ", "> " + url);
 
             InputStream stream = connection.getInputStream();
 

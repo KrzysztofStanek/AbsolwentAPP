@@ -85,10 +85,12 @@ public class API {
         try {
             String responde = this.request(parametr);
             data = this.createData(responde);
-            if(data.get("data") == "TRUE"){
+            if(data.get("data").equals("TRUE")){
+                Log.d("czyKontoIstnieje", "istnieje");
                 return true;
             }
             else{
+                Log.d("czyKontoIstnieje", "nie istnieje"+data.get("data"));
                 return false;
             }
 

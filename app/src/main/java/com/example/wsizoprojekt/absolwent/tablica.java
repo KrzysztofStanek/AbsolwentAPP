@@ -1,7 +1,11 @@
 package com.example.wsizoprojekt.absolwent;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class tablica extends AppCompatActivity {
 
@@ -10,6 +14,25 @@ public class tablica extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tablica);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        TextView test_ = findViewById(R.id.test);
+        test_.setText("Witaj "+autoryzacja.nick);
+
+        Button bWyloguj = findViewById(R.id.bWyloguj);
+
+        bWyloguj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    autoryzacja.wyloguj();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(tablica.this, MainActivity.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

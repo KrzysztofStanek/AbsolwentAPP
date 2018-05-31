@@ -16,7 +16,7 @@ public class tablica extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView test_ = findViewById(R.id.test);
-        test_.setText("Witaj "+autoryzacja.nick);
+        test_.setText("Witaj "+autoryzacja.nick+"("+autoryzacja.user_id+")");
 
         Button bWyloguj = findViewById(R.id.bWyloguj);
 

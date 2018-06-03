@@ -4,30 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".tablica"
+    android:layout_margin="20dp"
     android:orientation="vertical"
-    android:weightSum="12"
-    >
+    android:weightSum="1"
+    tools:context=".rejestracjaActivity">
 
     <TextView
         android:id="@+id/test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+
         android:cursorVisible="false"
         android:text="Witaj..."
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        />
+        android:textSize="30sp" />
+
+<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8">
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Button" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/bProfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Twój profil" />
+
+    <Button
+        android:id="@+id/bImprezy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Imprezy w okolicy" />
+
+    <Button
+        android:id="@+id/bChetni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Chętni do picia" />
 
     <Button
         android:id="@+id/bWyloguj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Wyloguj" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="2" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="2" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -18,6 +18,7 @@ public class tablica extends AppCompatActivity {
         TextView test_ = findViewById(R.id.test);
         test_.setText("Witaj "+autoryzacja.nick+"("+autoryzacja.user_id+")");
 
+
         Button bWyloguj = findViewById(R.id.bWyloguj);
 
         bWyloguj.setOnClickListener(new View.OnClickListener() {

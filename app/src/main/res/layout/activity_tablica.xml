@@ -7,93 +7,163 @@
     android:layout_margin="20dp"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context=".rejestracjaActivity">
+    tools:context=".rejestracjaActivity"
+    >
 
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+         <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        android:cursorVisible="false"
-        android:text="Witaj..."
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="30sp" />
-
-<LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="8">
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        app:srcCompat="@drawable/ic_launcher_background" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-
-
-
-            <Button
-                android:id="@+id/button22"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:weightSum="8"
+                android:layout_marginBottom="10dp">
 
-                android:text="Button" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+
+                        app:srcCompat="@drawable/no_photo" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    >
+
+
+
+                    <TextView
+                        android:id="@+id/test"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="Witaj..............."
+
+                        android:textColor="@android:color/black"
+                        android:textSize="19sp" />
+
+                    <Button
+                        android:id="@+id/bProfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Twój profil" />
+
+                    <Button
+                        android:id="@+id/bEdycjaProfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Edytuj profil" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/bImprezy"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Imprezy w okolicy"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/imprezy_ico" />
+
+                <Button
+                    android:id="@+id/bChetni"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Chętni do picia"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/chetni_do_picia_ico" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/bRegulamin"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Regulamin"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/regulamin_ico" />
+
+                <Button
+                    android:id="@+id/bPrywatnosc"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Prywatność"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/prywatnosc_ico" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/bAutorzy"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Autorzy"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/autorzy_ico" />
+
+                <Button
+                    android:id="@+id/bWyloguj"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:padding="10dp"
+                    android:layout_weight="2"
+                    android:layout_margin="2dp"
+                    android:text="Wyloguj"
+                    android:background="@android:color/holo_orange_light"
+                    android:drawableTop="@drawable/wyloguj_ico" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/bProfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Twój profil" />
-
-    <Button
-        android:id="@+id/bImprezy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="Imprezy w okolicy" />
-
-    <Button
-        android:id="@+id/bChetni"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="Chętni do picia" />
-
-    <Button
-        android:id="@+id/bWyloguj"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Wyloguj" />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="4">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="2" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="2" />
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

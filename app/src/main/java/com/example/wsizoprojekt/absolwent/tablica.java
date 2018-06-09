@@ -21,6 +21,12 @@ public class tablica extends AppCompatActivity {
 
         Button bWyloguj = findViewById(R.id.bWyloguj);
 
+        Button bRegulamin = findViewById(R.id.bRegulamin);
+
+        Button bPrywatnosc = findViewById(R.id.bPrywatnosc);
+
+        Button bEdycjaProfil = findViewById(R.id.bEdycjaProfil);
+
         bWyloguj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +36,30 @@ public class tablica extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Intent intent = new Intent(tablica.this, MainActivity.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bRegulamin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent = new Intent(tablica.this, oaplikacji_regulamin.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bPrywatnosc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, oaplikacji_politykaprywatnosci.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bEdycjaProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, edycja_profilu_activity.class);
                 tablica.this.startActivity(intent);
             }
         });

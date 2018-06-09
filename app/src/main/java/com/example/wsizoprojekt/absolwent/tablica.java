@@ -21,9 +21,9 @@ public class tablica extends AppCompatActivity {
 
         Button bWyloguj = findViewById(R.id.bWyloguj);
 
-
         Button bRegulamin = findViewById(R.id.bRegulamin);
 
+        Button bPrywatnosc = findViewById(R.id.bPrywatnosc);
 
         bWyloguj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +45,15 @@ public class tablica extends AppCompatActivity {
                 tablica.this.startActivity(intent);
             }
         });
+
+        bPrywatnosc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, oaplikacji_politykaprywatnosci.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

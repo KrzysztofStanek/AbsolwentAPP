@@ -16,16 +16,16 @@
         android:layout_height="wrap_content"
 
         android:text="Edycja profilu"
-android:textAlignment="center"
+        android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="21sp" />
 
     <TextView
-    android:id="@+id/imieLabel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:text="Imie" />
+        android:id="@+id/imieLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Imie" />
 
     <EditText
         android:id="@+id/imie"
@@ -73,21 +73,21 @@ android:textAlignment="center"
         android:orientation="horizontal">
 
 
-    <Button
-        android:id="@+id/bzatwierdz"
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:text="Zatwierdź" />
+        <Button
+            android:id="@+id/bzatwierdz"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:text="Zatwierdź" />
 
-    <Button
-        android:id="@+id/banuluj"
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_red_light"
-        android:text="Anuluj" />
-    </linearLayout>
+        <Button
+            android:id="@+id/banuluj"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:text="Anuluj" />
+    </LinearLayout>
 
 </LinearLayout>

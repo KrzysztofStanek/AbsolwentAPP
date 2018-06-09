@@ -25,7 +25,8 @@
         <activity android:name=".oaplikacji_regulamin" />
         <activity android:name=".oaplikacji_politykaprywatnosci" />
         <activity android:name=".oaplikacji_autorzy" />
-        <activity android:name=".edycja_profilu_activity"></activity>
+        <activity android:name=".edycja_profilu_activity" />
+        <activity android:name=".profil"></activity>
     </application>
 
 </manifest>

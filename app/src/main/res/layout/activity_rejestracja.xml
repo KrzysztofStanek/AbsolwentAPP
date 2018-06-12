@@ -10,99 +10,122 @@
     android:layout_margin="20dp"
     >
 
-    <TextView
-        android:id="@+id/naglowek_powitalny"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:cursorVisible="false"
-        android:text="REJESTRACJA"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:layout_marginBottom="20dp"
-        />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/loginLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Login" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:inputType="textPersonName"
-        />
+            <TextView
+                android:id="@+id/naglowek_powitalny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:cursorVisible="false"
+                android:text="REJESTRACJA"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/imieLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Imie" />
+            <TextView
+                android:id="@+id/loginLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Login" />
 
-    <EditText
-        android:id="@+id/imie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:inputType="textPersonName"
-        />
+            <EditText
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/hasloLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Hasło" />
+            <TextView
+                android:id="@+id/imieLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Imie" />
 
+            <EditText
+                android:id="@+id/imie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/haslo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:inputType="textPassword"
-        />
+            <TextView
+                android:id="@+id/hasloLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hasło" />
 
-    <TextView
-        android:id="@+id/dataLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Data urodzenia" />
+            <EditText
+                android:id="@+id/haslo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/data_urodzenia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:inputType="date"
-        android:layout_marginBottom="20dp"
-        />
+            <TextView
+                android:id="@+id/dataLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Data urodzenia" />
 
-    <Button
-        android:id="@+id/bPotwierdzRejestracje"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="POTWIERDŹ REJESTRACJĘ" />
+            <DatePicker
+                android:id="@+id/data_urodzenia"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:calendarViewShown="true"
+                android:spinnersShown="false" />
 
-    <TextView
-        android:id="@+id/regulamin_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:cursorVisible="false"
-        android:text="Używając aplikacji Absolwent akceptujesz obowiązujący Regulamin serwisu ABSOLWENT"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="10sp"
-        android:layout_marginTop="10dp"
-        />
+            <TextView
+                android:id="@+id/wojewodztwoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wybierz województwo" />
+
+            <Spinner
+                android:id="@+id/wojewodztwa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:entries="@array/wojewodztwa_rejestracja" />
+
+            <Button
+                android:id="@+id/bPotwierdzRejestracje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="POTWIERDŹ REJESTRACJĘ" />
+
+            <TextView
+                android:id="@+id/regulamin_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:cursorVisible="false"
+                android:text="Używając aplikacji Absolwent akceptujesz obowiązujący Regulamin serwisu ABSOLWENT"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

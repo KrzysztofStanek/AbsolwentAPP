@@ -66,6 +66,21 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
+    <TextView
+        android:id="@+id/wojewodztwoLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Zmień swoje województwo" />
+
+    <Spinner
+        android:id="@+id/wojewodztwa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:entries="@array/wojewodztwa_rejestracja" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

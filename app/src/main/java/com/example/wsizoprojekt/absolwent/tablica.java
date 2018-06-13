@@ -27,6 +27,8 @@ public class tablica extends AppCompatActivity {
 
         Button bEdycjaProfil = findViewById(R.id.bEdycjaProfil);
 
+        Button bImprezy = findViewById(R.id.bImprezy);
+
         bWyloguj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +62,14 @@ public class tablica extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(tablica.this, edycja_profilu_activity.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bImprezy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, imprezy_w_okolicy.class);
                 tablica.this.startActivity(intent);
             }
         });

@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:cursorVisible="false"
-        android:text="Używając aplikacji Absolwent akceptujesz obowiązujący Regulamin serwisu ABSOLWENT"
+        android:text="Informujemy, że przetwarzamy Twoje dane osobowe. Nie ujawniamy nikomu ile wczoraj wypiłeś, (RODO - jak zalejesz pałe szukaj sie w galerii ;>)"
         android:textAlignment="textStart"
         android:textColor="@android:color/darker_gray"
         android:textSize="10sp"

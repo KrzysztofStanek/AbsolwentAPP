@@ -28,7 +28,8 @@
         <activity android:name=".edycja_profilu_activity" />
         <activity android:name=".profil" />
         <activity android:name=".imprezy_w_okolicy" />
-        <activity android:name=".dodaj_impreze"></activity>
+        <activity android:name=".dodaj_impreze" />
+        <activity android:name=".chetni"></activity>
     </application>
 
 </manifest>

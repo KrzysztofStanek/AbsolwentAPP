@@ -53,7 +53,7 @@ public class API {
 
     //REJESTRACJA
 
-    public Map<String, String> rejestruj(String nick, String imie, String haslo, String miejscowosc, String opis, String data_urodzenia) throws Exception {
+    public Map<String, String> rejestruj(String nick, String imie, String haslo, String miejscowosc, String opis, String data_urodzenia, String woj) throws Exception {
 
         String pass_hash = Password.hash(haslo);
 
@@ -66,6 +66,7 @@ public class API {
         parametr.put("miejscowosc", miejscowosc);
         parametr.put("opis", opis);
         parametr.put("data_urodzenia", data_urodzenia);
+        parametr.put("wojewodztwo", woj);
 
         Map<String, String> data = new HashMap<>();
 

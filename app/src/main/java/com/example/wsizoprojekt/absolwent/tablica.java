@@ -30,6 +30,7 @@ public class tablica extends AppCompatActivity {
         Button bImprezy = findViewById(R.id.bImprezy);
 
         Button bDodajimpreze = findViewById(R.id.bDodajimpreze);
+        Button bChetni = findViewById(R.id.bChetni);
 
         bWyloguj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,14 @@ public class tablica extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(tablica.this, imprezy_w_okolicy.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bChetni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, chetni.class);
                 tablica.this.startActivity(intent);
             }
         });

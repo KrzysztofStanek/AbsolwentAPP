@@ -41,13 +41,27 @@ public class API {
         Map<String, String> data = new HashMap<>();
         Log.d("create", json);
         JSONObject obj = new JSONObject(json);
+
         data.put("status",obj.getString("status") );
         data.put("desc",obj.getString("desc") );
         data.put("data",obj.getString("data") );
+        Log.d("TEST", "DATA po przypisaniu: "+obj.getString("data"));
+        Log.d("TEST", "DATA z mapy1: "+data.get("data"));
 
         data.put("auth_id",obj.getString("auth_id") );
         data.put("user_id",obj.getString("user_id") );
         data.put("nick",obj.getString("nick") );
+        Log.d("TEST", "DATA z mapy2: "+data.get("data"));
+
+        if(obj.has("imie")){data.put("imie",obj.getString("imie") );}
+        if(obj.has("id")){data.put("id",obj.getString("id") );}
+
+        if(obj.has("miejscowosc")){data.put("miejscowosc",obj.getString("miejscowosc") );}
+
+        if(obj.has("opis")){data.put("opis",obj.getString("opis") );}
+
+        if(obj.has("wojewodztwo")){data.put("wojewodztwo",obj.getString("wojewodztwo") );}
+
         return data;
     }
 
@@ -71,6 +85,57 @@ public class API {
         Map<String, String> data = new HashMap<>();
 
                 
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    //POBIERANIE DANYCH UZYTKOWNIKA
+
+    public Map<String, String> pobierzDaneUzytkownika(String id) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "getUserData");
+
+        parametr.put("id", id);
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    //EDYCJA
+
+    public Map<String, String> edycja_profilu(String id, String imie, String miejscowosc, String opis, String woj) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "edit_user");
+
+        parametr.put("id", id);
+        parametr.put("imie", imie);
+        parametr.put("miejscowosc", miejscowosc);
+        parametr.put("opis", opis);
+        parametr.put("wojewodztwo", woj);
+
+        Map<String, String> data = new HashMap<>();
+
+
         try {
             String responde = this.request(parametr);
             data = this.createData(responde);
@@ -120,14 +185,16 @@ public class API {
         parametr.put("haslo", pass_hash);
 
         Map<String, String> data = new HashMap<>();
+        Log.d("TEST", "ZALOGUJ FUNKCJA");
 
         try {
             String responde = this.request(parametr);
             data = this.createData(responde);
+            Log.d("TEST", "DATA: "+data.get("data"));
             if(data.get("data").equals("TRUE")){
-                String nick_ = data.get("nick");
-                String id_ = data.get("user_id");;
-                String auth_id_=data.get("auth_id");;
+                String nick_ = data.get("nick"); Log.d("TEST", "NICK: "+nick_);
+                String id_ = data.get("user_id"); Log.d("TEST", "ID: "+id_);
+                String auth_id_=data.get("auth_id"); Log.d("TEST", "AUTH_ID: "+auth_id_);
                 autoryzacja.zaloguj(nick_, id_, auth_id_);
                 return true;
             }

@@ -19,7 +19,7 @@ import org.json.*;
 public class API {
     public static String result="";
 
-    public String url_base = "http://91.196.48.246/absolwentAPP/request_2314151352.php";
+    public String url_base = "http://185.11.103.10/absolwentAPP/request_2314151352.php";
     public String api_key = "15135fdg34245g1fdas1agKKas1";
     public String request_key = "jjGMg221gb02199gva";
     ///request_2314151352.php?api_key=15135fdg34245g1fdas1agKKas1&request_key=jjGMg221gb02199gva

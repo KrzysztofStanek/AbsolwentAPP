@@ -24,7 +24,6 @@ public class rejestracjaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rejestracja);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         final API api = new API();
 
         Button bPotwierdzRejestracje = findViewById(R.id.bPotwierdzRejestracje);

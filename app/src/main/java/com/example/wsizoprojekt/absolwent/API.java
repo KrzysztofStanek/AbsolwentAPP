@@ -22,6 +22,7 @@ public class API {
     public String url_base = "http://185.11.103.10/absolwentAPP/request_2314151352.php";
     public String api_key = "15135fdg34245g1fdas1agKKas1";
     public String request_key = "jjGMg221gb02199gva";
+    public JSONObject response;
     ///request_2314151352.php?api_key=15135fdg34245g1fdas1agKKas1&request_key=jjGMg221gb02199gva
 
     public String request(Map<String, String> params) throws ExecutionException, InterruptedException {
@@ -38,22 +39,23 @@ public class API {
     }
 
     public Map<String, String> createData(String json) throws JSONException {
+
         Map<String, String> data = new HashMap<>();
         Log.d("create", json);
         JSONObject obj = new JSONObject(json);
-
+        response = obj;
         data.put("status",obj.getString("status") );
         data.put("desc",obj.getString("desc") );
         data.put("data",obj.getString("data") );
-        Log.d("TEST", "DATA po przypisaniu: "+obj.getString("data"));
-        Log.d("TEST", "DATA z mapy1: "+data.get("data"));
+
 
         data.put("auth_id",obj.getString("auth_id") );
         data.put("user_id",obj.getString("user_id") );
         data.put("nick",obj.getString("nick") );
-        Log.d("TEST", "DATA z mapy2: "+data.get("data"));
 
-        if(obj.has("imie")){data.put("imie",obj.getString("imie") );}
+        //if(!obj.isNull("imie")){data.put("imie",obj.getString("imie") );}
+       // data.put("imie",obj.optString("imie") );
+        data.put("imie","dupa" );
         if(obj.has("id")){data.put("id",obj.getString("id") );}
 
         if(obj.has("miejscowosc")){data.put("miejscowosc",obj.getString("miejscowosc") );}

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Map;
 
@@ -21,15 +22,15 @@ public class edycja_profilu_activity extends AppCompatActivity {
         Button bzatwierdz = findViewById(R.id.bzatwierdz);
         Button banuluj = findViewById(R.id.banuluj);
 
-        API api = new API();
+        final API api = new API();
 
         try {
-            Spinner spinner = (Spinner) findViewById(R.id.wojewodztwa);
+            final Spinner spinner = (Spinner) findViewById(R.id.wojewodztwa);
 
             Map<String, String> dane_uzytkownika = api.pobierzDaneUzytkownika(autoryzacja.user_id);
-            EditText imie_ = findViewById(R.id.imie);
-            EditText miejscowosc_ = findViewById(R.id.miejscowosc);
-            EditText opis_ = findViewById(R.id.opis);
+            final EditText imie_ = findViewById(R.id.imie);
+            final EditText miejscowosc_ = findViewById(R.id.miejscowosc);
+            final EditText opis_ = findViewById(R.id.opis);
             Log.d("TEST","EDYCJA: "+api.response.optString("imie"));
             imie_.setText(api.response.optString("imie"));
             miejscowosc_.setText(api.response.optString("miejscowosc"));
@@ -56,26 +57,41 @@ public class edycja_profilu_activity extends AppCompatActivity {
 
             spinner.setSelection(nr_selecta);
 
+            //edycja_profilu(String id, String imie, String miejscowosc, String opis, String woj)
+
+            banuluj.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(edycja_profilu_activity.this, tablica.class);
+                    edycja_profilu_activity.this.startActivity(intent);
+                }
+            });
+
+            bzatwierdz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String imie_value = imie_.getText().toString();
+                    String miejscowosc_value = miejscowosc_.getText().toString();
+                    String opis_value = opis_.getText().toString();
+                    String wojewodztwo_value = spinner.getSelectedItem().toString();
+                    try {
+                        api.edycja_profilu(autoryzacja.user_id, imie_value, miejscowosc_value, opis_value, wojewodztwo_value);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(edycja_profilu_activity.this, "Zaktualizowano", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(edycja_profilu_activity.this, tablica.class);
+                    edycja_profilu_activity.this.startActivity(intent);
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        banuluj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(edycja_profilu_activity.this, tablica.class);
-                edycja_profilu_activity.this.startActivity(intent);
-            }
-        });
 
-        bzatwierdz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(edycja_profilu_activity.this, tablica.class);
-                edycja_profilu_activity.this.startActivity(intent);
-            }
-        });
 
 
 

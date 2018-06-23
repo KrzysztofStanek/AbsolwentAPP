@@ -19,13 +19,15 @@ public class tablica extends AppCompatActivity {
         test_.setText("Witaj "+autoryzacja.nick+"("+autoryzacja.user_id+")");
 
 
+        Button bEdycjaProfil = findViewById(R.id.bEdycjaProfil);
+
         Button bWyloguj = findViewById(R.id.bWyloguj);
 
         Button bRegulamin = findViewById(R.id.bRegulamin);
 
-        Button bPrywatnosc = findViewById(R.id.bPrywatnosc);
+        Button bProfil = findViewById(R.id.bProfil);
 
-        Button bEdycjaProfil = findViewById(R.id.bEdycjaProfil);
+        Button bPrywatnosc = findViewById(R.id.bPrywatnosc);
 
         Button bImprezy = findViewById(R.id.bImprezy);
 
@@ -65,6 +67,14 @@ public class tablica extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(tablica.this, edycja_profilu_activity.class);
+                tablica.this.startActivity(intent);
+            }
+        });
+
+        bProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tablica.this, profil.class);
                 tablica.this.startActivity(intent);
             }
         });

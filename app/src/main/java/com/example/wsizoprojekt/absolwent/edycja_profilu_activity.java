@@ -27,14 +27,17 @@ public class edycja_profilu_activity extends AppCompatActivity {
         try {
             final Spinner spinner = (Spinner) findViewById(R.id.wojewodztwa);
 
-            Map<String, String> dane_uzytkownika = api.pobierzDaneUzytkownika(autoryzacja.user_id);
+            api.pobierzDaneUzytkownika(autoryzacja.user_id);
             final EditText imie_ = findViewById(R.id.imie);
             final EditText miejscowosc_ = findViewById(R.id.miejscowosc);
             final EditText opis_ = findViewById(R.id.opis);
+
             Log.d("TEST","EDYCJA: "+api.response.optString("imie"));
+
             imie_.setText(api.response.optString("imie"));
             miejscowosc_.setText(api.response.optString("miejscowosc"));
             opis_.setText(api.response.optString("opis"));
+
             int nr_selecta = 0;
             switch(api.response.optString("wojewodztwo")){
                 case "Dolnośląskie" : {nr_selecta = 0; break;}

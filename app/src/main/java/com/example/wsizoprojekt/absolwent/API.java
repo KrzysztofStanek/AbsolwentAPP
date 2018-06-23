@@ -98,6 +98,32 @@ public class API {
         return data;
     }
 
+    //DODAJ IMPREZE
+
+    public Map<String, String> dodaj_impreze(String nazwa, String data_imrezy, String miejsce, String wojewodztwo, String opis) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "dodaj_impreze");
+
+        parametr.put("nazwa", nazwa);
+        parametr.put("data", data_imrezy);
+        parametr.put("miejsce", miejsce);
+        parametr.put("wojewodztwo", wojewodztwo);
+        parametr.put("opis", opis);
+
+        Map<String, String> data = new HashMap<>();
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
     //POBIERANIE DANYCH UZYTKOWNIKA
 
     public Map<String, String> pobierzDaneUzytkownika(String id) throws Exception {

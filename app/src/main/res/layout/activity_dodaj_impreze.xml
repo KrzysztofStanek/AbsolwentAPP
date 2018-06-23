@@ -70,7 +70,7 @@
 
 
             <EditText
-                android:id="@+id/miejscowosc"
+                android:id="@+id/miejscowoscimprezy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -83,7 +83,7 @@
 
 
             <Spinner
-                android:id="@+id/wojewodztwa"
+                android:id="@+id/wojewodztwoimpreza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -99,7 +99,7 @@
 
 
             <EditText
-                android:id="@+id/opis"
+                android:id="@+id/opisimprezy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

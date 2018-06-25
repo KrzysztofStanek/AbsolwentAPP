@@ -53,16 +53,7 @@ public class API {
         data.put("user_id",obj.getString("user_id") );
         data.put("nick",obj.getString("nick") );
 
-        //if(!obj.isNull("imie")){data.put("imie",obj.getString("imie") );}
-       // data.put("imie",obj.optString("imie") );
-        data.put("imie","dupa" );
-        if(obj.has("id")){data.put("id",obj.getString("id") );}
 
-        if(obj.has("miejscowosc")){data.put("miejscowosc",obj.getString("miejscowosc") );}
-
-        if(obj.has("opis")){data.put("opis",obj.getString("opis") );}
-
-        if(obj.has("wojewodztwo")){data.put("wojewodztwo",obj.getString("wojewodztwo") );}
 
         return data;
     }
@@ -132,6 +123,28 @@ public class API {
         parametr.put("action", "getUserData");
 
         parametr.put("id", id);
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    public Map<String, String> pobierzImpreze(String wojewodztwo) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "pobierz_impreze");
+
+        parametr.put("wojewodztwo", wojewodztwo);
 
 
         Map<String, String> data = new HashMap<>();

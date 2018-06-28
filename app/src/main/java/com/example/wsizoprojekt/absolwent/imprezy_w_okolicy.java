@@ -1,5 +1,6 @@
 package com.example.wsizoprojekt.absolwent;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ public class imprezy_w_okolicy extends AppCompatActivity {
 
     API api = new API();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,31 +26,23 @@ public class imprezy_w_okolicy extends AppCompatActivity {
 
         Button bpoprzednia = findViewById(R.id.bpoprzednia);
         Button bnastepna = findViewById(R.id.bnastepna);
+
+
         try {
+            api.pobierzDaneUzytkownika(autoryzacja.user_id);
+            String wojewodztwo_uzytkownika = api.response.optString("wojewodztwo");
 
-
-            api.pobierzImpreze("Podkarpackie");
+            api.pobierzImpreze(wojewodztwo_uzytkownika);
             JSONObject requestJSON = api.response;
             final JSONArray recs = requestJSON.getJSONArray("data");
-            ///String data_json = api.response.optString("data");
-            //final JSONObject recs = new JSONObject(data_json);
 
-            //final JSONArray recs = temp.getJSONArray("data");
-            //final JSONObject recs = requestJSON.getJSONObject("data");
-
-
-            /*for (int i = 0; i < recs.length(); ++i) {
-                JSONObject rec = recs.getJSONObject(String.valueOf(i));
-                int id = rec.getInt("id");
-                String loc = rec.getString("loc");
-                // ...
-            }*/
             final int max = recs.length()-1;
             final int start = 0;
             final int[] aktualna = {start};
 
 
             wyswietlImpreze(recs, aktualna[0]);
+
 
 
             bpoprzednia.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +56,8 @@ public class imprezy_w_okolicy extends AppCompatActivity {
                     try {
                         wyswietlImpreze(recs, aktualna[0]);
                     } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -80,6 +76,8 @@ public class imprezy_w_okolicy extends AppCompatActivity {
                     } catch (JSONException e) {
 
                         e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             });
@@ -92,11 +90,11 @@ public class imprezy_w_okolicy extends AppCompatActivity {
         }
     }
 
-    protected void wyswietlImpreze(JSONArray recs, int numer) throws JSONException {
-       JSONObject rec = recs.getJSONObject(numer);
+    protected void wyswietlImpreze(JSONArray recs, int numer) throws Exception {
+       final JSONObject rec = recs.getJSONObject(numer);
        // JSONObject obj = rec.getJSONObject(1);
 
-        TextView nazwaImprezy = findViewById(R.id.nazwaimprezy);
+        final TextView nazwaImprezy = findViewById(R.id.nazwaimprezy);
         nazwaImprezy.setText(rec.optString("nazwa"));
 
         TextView data = findViewById(R.id.data);
@@ -106,15 +104,58 @@ public class imprezy_w_okolicy extends AppCompatActivity {
         miejsceimprezy.setText(rec.optString("miejsce"));
 
         TextView wojewodztwoimprezy = findViewById(R.id.wojewodztwoimprezy);
-        wojewodztwoimprezy.setText(rec.optString("wojewodztwo"));
+        wojewodztwoimprezy.setText(rec.optString("wojewodztwo")+")");
 
         TextView opisimprezy = findViewById(R.id.opisimprezy);
         opisimprezy.setText(rec.optString("opis"));
+        final Button bDolacz = findViewById(R.id.bdolaczdoimprezy);
 
+        api.bierzeUdzial(rec.optString("id_imprezy"), autoryzacja.user_id);
+
+        if(api.response.optString("data").equals("TRUE")){
+            bDolacz.setEnabled(false);
+            bDolacz.setBackgroundColor(Color.GRAY);
+            bDolacz.setText("BIERZESZ UDZIAŁ");
+        }
+        else{
+            bDolacz.setEnabled(true);
+            bDolacz.setBackgroundColor(this.getResources().getColor(android.R.color.holo_orange_dark));
+            bDolacz.setText("Dołącz do imprezy");
+        }
+
+        api.ileWezmieUdzial(rec.optString("id_imprezy"));
+        String ile = api.response.optString("data");
+        Button bInfoImpreza = findViewById(R.id.binfoimpreza);
+        bInfoImpreza.setText("Weźmie udział - "+ile);
+
+        bDolacz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    api.dolaczDoImprezy(rec.optString("id_imprezy"), autoryzacja.user_id);
+                    bDolacz.setEnabled(false);
+                    bDolacz.setBackgroundColor(Color.GRAY);
+                    bDolacz.setText("BIERZESZ UDZIAŁ");
+                    Toast.makeText(imprezy_w_okolicy.this, "Dołączyłeś do "+rec.optString("nazwa"), Toast.LENGTH_SHORT).show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
 
         Log.d("NOWE", String.valueOf(numer));
         Log.d("NOWE", rec.getString("nazwa"));
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+
+        return true;
     }
 }
 

@@ -161,6 +161,74 @@ public class API {
         return data;
     }
 
+    public Map<String, String> dolaczDoImprezy(String idImprezy, String idUsera) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "dolaczDoImprezy");
+
+        parametr.put("idImprezy", idImprezy);
+        parametr.put("idUsera", idUsera);
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    public Map<String, String> bierzeUdzial(String idImprezy, String idUsera) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "bierzeUdzial");
+
+        parametr.put("idImprezy", idImprezy);
+        parametr.put("idUsera", idUsera);
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    public Map<String, String> ileWezmieUdzial(String idImprezy) throws Exception {
+
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "ileWezmieUdzial");
+
+        parametr.put("idImprezy", idImprezy);
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
     //EDYCJA
 
     public Map<String, String> edycja_profilu(String id, String imie, String miejscowosc, String opis, String woj) throws Exception {

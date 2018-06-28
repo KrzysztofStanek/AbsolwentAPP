@@ -48,7 +48,11 @@ public class dodaj_impreze extends AppCompatActivity {
                 final API api = new API();
 
                 try {
+
                     api.dodaj_impreze(nazwaimprezy, dataimprezy, miejscowoscimprezy, wojewodztwoimpreza, opisimprezy);
+                    Toast.makeText(dodaj_impreze.this, "Impreza zapisana", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(dodaj_impreze.this, tablica.class);
+                    dodaj_impreze.this.startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -66,5 +70,12 @@ public class dodaj_impreze extends AppCompatActivity {
                 dodaj_impreze.this.startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+
+        return true;
     }
 }

@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".chetni">
+    android:layout_height="wrap_content"
+    tools:context=".imprezy_w_okolicy"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/chetnidopicialabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Chętni do picia"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/chetnidopicialista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_margin="20dp"
     >
-
+//kurwa słuchajta, na kolosie z eberbach nie pilnuje tereska tylko LP
     <TextView
         android:id="@+id/chetnidopicialabel"
         android:layout_width="match_parent"

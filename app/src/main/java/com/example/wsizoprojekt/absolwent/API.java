@@ -393,6 +393,24 @@ public class API {
     }
 
 
+    public Map<String, String> pobierzChętnych() throws Exception {
 
+        Map<String, String> parametr = new HashMap<>();
+        parametr.put("action", "pobierz_chetnych");
+
+
+        Map<String, String> data = new HashMap<>();
+
+
+        try {
+            String responde = this.request(parametr);
+            data = this.createData(responde);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
 
 }
